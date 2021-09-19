@@ -5,6 +5,12 @@
 @section('content')
     <h1 class="text-2xl text-gray-700 font-bold mb-8">Posts</h1>
 
+    @if(session('message'))
+        <div class="bg-green-200 rounded p-4 mb-8">
+            <p class="text-green-700 text-sm font-semibold">{{ session('message') }}</p>
+        </div>
+    @endif
+
     <div class="grid grid-cols-3 gap-4">
     @foreach($posts as $post)
         <div class="bg-white rounded p-4">
