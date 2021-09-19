@@ -15,7 +15,7 @@
     @foreach($posts as $post)
         <div class="bg-white rounded p-4">
             <h2 class="text-xl text-gray-700 font-bold">{{ $post->title }}</h2>
-            <a class="text-sm text-gray-500 hover:text-indigo-700 transition" href="{{ route('posts.show', $post->id) }}">Show More</a>
+            <a class="text-sm text-gray-500 hover:text-indigo-700 transition" href="{{ route('posts.show', $post->slug) }}">Show More</a>
         </div>
     @endforeach
     </div>

@@ -7,7 +7,7 @@
         <div class="flex items-center justify-between  mb-8">
             <h1 class="text-2xl text-gray-700 font-bold">Post edit</h1>
 
-            <form action="{{ route('posts.destroy', $post->id) }}" method="post">
+            <form action="{{ route('posts.destroy', $post->slug) }}" method="post">
                 @csrf
                 @method('DELETE')
                 <button class="bg-red-500 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded focus:outline-none focus:shadow-outline transition" type="submit">
@@ -22,7 +22,7 @@
             </div>
         @endif
 
-        <form action="{{ route('posts.update', $post->id) }}" method="post">
+        <form action="{{ route('posts.update', $post->slug) }}" method="post">
             @csrf
             @method('PUT')
 

@@ -57,10 +57,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         return view('posts.show', compact('post'));
     }
 
@@ -70,10 +68,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Post $post)
     {
-        $post = Post::findOrFail($id);
-
         return view('posts.edit', compact('post'));
     }
 
@@ -84,10 +80,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StorePostRequest $request, $id)
+    public function update(StorePostRequest $request, Post $post)
     {
-        $post = Post::findOrFail($id);
-
         $postTitle = $request->title;
 
         $post->title = $postTitle;
@@ -105,9 +99,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Post $post)
     {
-        $post = Post::findOrFail($id);
         $post->delete();
 
         return redirect()->route('posts.index')->with('message', 'Delete post' . $post->id . ' successfully!');
