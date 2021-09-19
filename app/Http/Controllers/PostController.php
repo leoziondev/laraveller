@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -26,7 +27,7 @@ class PostController extends Controller
      */
     public function create()
     {
-
+        return view('posts.create');
     }
 
     /**
@@ -37,7 +38,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = new Post();
+
+        $postTitle = $request->title;
+
+        $post->title = $postTitle;
+        $post->slug = Str::slug($postTitle);
+        $post->body = $request->body;
+
+        $post->save();
+
+        return redirect()->route('posts.create')->with('message', 'Created post successfully!');
     }
 
     /**
