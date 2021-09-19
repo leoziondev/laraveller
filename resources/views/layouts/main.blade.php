@@ -23,6 +23,7 @@
             <nav class="space-x-4">
                 <a class="text-sm font-semibold text-gray-500 hover:text-indigo-500 transition" href="/">Home</a>
                 <a class="text-sm font-semibold text-gray-500 hover:text-indigo-500 transition" href="about">About</a>
+                <a class="text-sm font-semibold text-gray-500 hover:text-indigo-500 transition" href="services">Services</a>
                 <a class="text-sm font-semibold text-gray-500 hover:text-indigo-500 transition" href="{{ route('posts.index') }}">Post</a>
 
                 @if (Route::has('login'))

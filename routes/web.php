@@ -17,6 +17,14 @@ Route::get('/', function () {
     return view('home');
 });
 
+Route::get('services', function () {
+    return view('services');
+})->middleware('role:admin');
+
+Route::get('about', function () {
+    return view('about');
+})->middleware('role:admin');
+
 Route::resource('posts', \App\Http\Controllers\PostController::class);
 
 Route::get('/dashboard', function () {
