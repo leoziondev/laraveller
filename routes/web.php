@@ -19,11 +19,11 @@ Route::get('/', function () {
 
 Route::get('services', function () {
     return view('services');
-})->middleware('role:admin');
+})->middleware('admin');
 
 Route::get('about', function () {
     return view('about');
-})->middleware('role:admin');
+});
 
 Route::resource('posts', \App\Http\Controllers\PostController::class);
 
