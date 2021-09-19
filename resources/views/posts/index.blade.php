@@ -5,8 +5,9 @@
 @section('content')
     <h1>Posts</h1>
 
-{{--    @dd($users);--}}
-    @foreach($users as $user)
-        <p>{{ $user->name }}</p>
+{{--    @dd($posts);--}}
+    @foreach($posts as $post)
+        <h2>{{ $post->title }}</h2>
+        <a href="{{ route('posts.show', $post->id) }}">Show More</a>
     @endforeach
 @endsection
