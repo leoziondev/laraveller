@@ -23,7 +23,11 @@
                     name="title"
                     id="title"
                     type="text"
+                    value="{{ old('title') }}"
                 />
+                @error('title')
+                    <span class="text-red-500 text-sm italic">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-4">
                 <label
@@ -38,7 +42,11 @@
                     name="body"
                     id="body"
                 />
+                {{ old('body') }}
                 </textarea>
+                @error('body')
+                    <span class="text-red-500 text-sm italic">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="flex items-center justify-between">

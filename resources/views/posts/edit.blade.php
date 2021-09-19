@@ -37,6 +37,9 @@
                     type="text"
                     value="{{ $post->title }}"
                 />
+                @error('title')
+                    <span class="text-red-500 text-sm italic">{{ $message }}</span>
+                @enderror
             </div>
             <div class="mb-4">
                 <label
@@ -45,7 +48,6 @@
                 >
                     Body
                 </label>
-{{--                <textarea name="" id="" cols="30" rows="10"></textarea>--}}
                 <textarea
                     id="body"
                     name="body"
@@ -53,15 +55,9 @@
                     class="bg-gray-100 appearance-none py-2 px-3 mt-1 block w-full sm:text-sm border rounded text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                     {{ $post->body }}
                 </textarea>
-{{--                <textarea--}}
-{{--                    rows="4"--}}
-{{--                    cols="30"--}}
-{{--                    class="bg-gray-100 p-1 appearance-none border rounded w-full text-gray-700 leading-tight focus:outline-none focus:shadow-outline"--}}
-{{--                    name="body"--}}
-{{--                    id="body"--}}
-{{--                />--}}
-{{--                {{ $post->body }}--}}
-{{--                </textarea>--}}
+                @error('body')
+                    <span class="text-red-500 text-sm italic">{{ $message }}</span>
+                @enderror
             </div>
 
             <div class="flex items-center justify-between">

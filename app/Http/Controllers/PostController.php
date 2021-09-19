@@ -38,6 +38,11 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
+        $validated = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'body' => 'required|min:3',
+        ]);
+
         $post = new Post();
 
         $postTitle = $request->title;
@@ -86,6 +91,11 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $validated = $request->validate([
+            'title' => 'required|min:3|max:255',
+            'body' => 'required|min:3',
+        ]);
+        
         $post = Post::findOrFail($id);
 
         $postTitle = $request->title;
