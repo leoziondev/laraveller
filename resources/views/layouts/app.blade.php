@@ -12,6 +12,7 @@
         <a href="/">Home</a>
         <a href="about">About</a>
         <a href="{{ route('users.index') }}">Users</a>
+        <a href="{{ route('posts.index') }}">Post</a>
     </nav>
     @yield('content')
 </body>
