@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePostRequest;
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 class PostController extends Controller
@@ -36,13 +36,8 @@ class PostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StorePostRequest $request)
     {
-        $validated = $request->validate([
-            'title' => 'required|min:3|max:255',
-            'body' => 'required|min:3',
-        ]);
-
         $post = new Post();
 
         $postTitle = $request->title;
@@ -89,13 +84,8 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StorePostRequest $request, $id)
     {
-        $validated = $request->validate([
-            'title' => 'required|min:3|max:255',
-            'body' => 'required|min:3',
-        ]);
-        
         $post = Post::findOrFail($id);
 
         $postTitle = $request->title;
