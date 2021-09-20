@@ -14,15 +14,19 @@ use App\Models\User;
 */
 
 Route::get('/', function () {
-    $user = User::find(2);
-    $phone = \App\Models\Phone::find(2);
+    $user = User::find(1);
 
-    dd($user->phone->number);
+//    $post = new \App\Models\Post();
+//    $post->title = 'Thirty post';
+//    $post->slug = 'thirty-post';
+//    $post->excerpt = 'Thirty excerpt post';
+//    $post->body = 'Content thirty post';
+//    $post->user_id = $user->id;
+//    $user->posts()->save($post);
+//    $post->save();
 
-//    dd($user->phone);
-//    $user->phone()->create([
-//        'number' => '1199881144'
-//    ]);
+//    $post = \App\Models\Post::find(2);
+//    return $post->user->name;
 
     return view('home');
 });
